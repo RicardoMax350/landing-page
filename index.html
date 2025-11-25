@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Top Support — Suporte de TI Premium | Ribeirão Preto</title>
+<meta name="description" content="Top Support — Suporte de TI rápido e profissional em Ribeirão Preto. Formatação, limpeza preventiva, clonagem, redes, backups e suporte empresarial." />
+
+<style>
+  /* ===== Reset e tipografia ===== */
+  :root{
+    --bg-1: #071627;
+    --bg-2: #082033;
+    --accent: #9ce34a;
+    --muted: #bfc9d1;
+    --glass: rgba(255,255,255,0.04);
+    --card: rgba(255,255,255,0.03);
+    --cta: #25D366;
+    --soft-white: #edf2f7;
+    --maxw: 1200px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    background: linear-gradient(160deg,var(--bg-1) 0%, #0b2b3f 40%, #0d3a52 100%);
+    color:var(--soft-white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px;}
+
+  /* ===== Header / Hero ===== */
+  header.hero{
+    position:relative;
+    padding:36px 0 20px;
+  }
+
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .brand img{
+    width:110px;
+    height:auto;
+    border-radius:12px;
+    background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    padding:6px;
+    box-shadow: 0 6px 20px rgba(2,9,17,0.6);
+  }
+  .brand h1{
+    font-size:18px;color:var(--soft-white);letter-spacing:0.2px;
+  }
+  .brand p{font-size:12px;color:var(--muted);margin-top:2px}
+
+  .cta-actions{display:flex;gap:12px;align-items:center}
+  .btn{
+    display:inline-flex;gap:10px;align-items:center;
+    padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none;
+    box-shadow: 0 6px 18px rgba(3,10,18,0.45);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-ghost{
+    background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--soft-white);
+    backdrop-filter: blur(6px);
+  }
+  .btn-primary{
+    background: linear-gradient(90deg, #2dd66c, #16b24d);
+    color:#04221a;
+  }
+
+  /* Hero card */
+  .hero-card{
+    margin-top:28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:18px;
+    padding:36px;
+    display:grid;
+    grid-template-columns: 1fr 460px;
+    gap:28px;
+    align-items:center;
+    box-shadow: 0 20px 60px rgba(2,9,17,0.6);
+    overflow:visible;
+  }
+
+  .hero-left h2{
+    color:var(--accent);
+    font-size:28px;
+    margin-bottom:10px;
+  }
+  .hero-left h3{
+    font-size:20px;color:var(--soft-white);margin-bottom:14px;
+  }
+  .hero-left p{color:var(--muted);margin-bottom:18px;font-size:15px}
+
+  .kpis{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+  .kpi{background:var(--card);padding:12px 14px;border-radius:12px;min-width:130px}
+  .kpi strong{display:block;font-size:18px;color:var(--soft-white)}
+  .kpi span{font-size:13px;color:var(--muted)}
+
+  /* Hero visual card (right) */
+  .hero-right{
+    position:relative;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: 0 14px 40px rgba(3,10,20,0.45);
+    overflow:hidden;
+  }
+  .hero-right .visual{
+    height:280px;border-radius:10px;overflow:hidden;background:
+      linear-gradient(120deg, rgba(156,227,74,0.07), rgba(37,211,102,0.04));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-right .visual .device{
+    width:86%;height:86%;border-radius:10px;background:linear-gradient(145deg,#0f2a3a, #072233);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 12px 40px rgba(0,0,0,0.6);
+    padding:18px;color:var(--muted);
+  }
+  .hero-right .visual h4{color:var(--accent);font-size:16px;margin-bottom:6px}
+  .hero-right .visual p{font-size:13px;color:var(--muted)}
+
+  /* Decorative abstract SVG curves */
+  .decor-svg{
+    position:absolute;right:-120px;top:-60px;opacity:0.22;filter: blur(18px);
+    transform: rotate(12deg);pointer-events:none;
+  }
+
+  /* ===== Services ===== */
+  .services{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;transition:transform .22s ease,box-shadow .22s ease;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .card:hover{transform:translateY(-8px);box-shadow: 0 20px 50px rgba(2,9,17,0.6)}
+  .card .thumb{width:120px;height:80px;border-radius:10px;overflow:hidden;flex-shrink:0}
+  .card .thumb img{width:100%;height:100%;object-fit:cover}
+  .card h4{color:var(--soft-white);font-size:16px;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:14px}
+
+  /* Full-width CTA strip */
+  .cta-strip{
+    margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(156,227,74,0.06), rgba(37,211,102,0.03));
+    display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(156,227,74,0.06);
+  }
+
+  /* Testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .testimonial{background:var(--glass);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+  .testimonial p{color:var(--muted);font-size:14px;margin-bottom:10px}
+  .testimonial small{color:var(--accent);font-weight:700}
+
+  /* Footer */
+  footer.sitefoot{margin-top:40px;padding:20px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:13px;border-radius:8px}
+
+  /* Responsive */
+  @media (max-width:980px){
+    .hero-card{grid-template-columns:1fr; padding:22px}
+    .hero-right{order:-1}
+    .services{grid-template-columns:1fr}
+    .testimonials{grid-template-columns:1fr}
+  }
+
+  @media (max-width:520px){
+    .brand img{width:88px}
+    .hero-left h2{font-size:22px}
+    .hero-left h3{font-size:16px}
+  }
+
+  /* micro interactions */
+  .pulse{
+    display:inline-block;position:relative;
+  }
+  .pulse::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 6px rgba(37,211,102,0.07);opacity:0;animation:pulse 2.6s infinite;
+  }
+  @keyframes pulse{0%{opacity:0;transform:scale(.92)}20%{opacity:0.7;transform:scale(1)}100%{opacity:0;transform:scale(1.12)}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap topbar">
+    <div class="brand">
+      <!-- caminho local do logo (substituir para deploy): /mnt/data/logo.jpeg -->
+      <img src="/mnt/data/logo.jpeg" alt="Top Support — logo">
+      <div>
+        <h1>Top Support</h1>
+        <p>Suporte de TI Premium • Ribeirão Preto</p>
+      </div>
+    </div>
+
+    <div class="cta-actions">
+      <a class="btn btn-ghost" href="#services" aria-label="Ver serviços">Nossos Serviços</a>
+      <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20TI." aria-label="Chamar no WhatsApp">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="wrap hero-card" role="region" aria-label="Apresentação Top Support">
+    <div class="hero-left">
+      <h2>Soluções de TI que fazem sua operação funcionar — sem dor de cabeça.</h2>
+      <h3>Atendimento rápido, seguro e com foco em resultados para empresas e residências em Ribeirão Preto.</h3>
+      <p>Formatação e otimização, limpeza preventiva, clonagem de HD/SSD, configuração de redes, backups e suporte empresarial. Planos mensais e atendimento avulso.</p>
+
+      <div class="kpis" aria-hidden="true">
+        <div class="kpi"><strong>+1.200</strong><span> chamados resolvidos</span></div>
+        <div class="kpi"><strong>90%</strong><span> satisfação média</span></div>
+        <div class="kpi"><strong>Atendimento</strong><span> remoto e presencial</span></div>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn btn-primary pulse" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20suporte%20de%20TI.">Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" href="#contact">Fazer um Orçamento</a>
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="true">
+      <!-- visual abstrato + dispositivo -->
+      <svg class="decor-svg" width="420" height="420" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#9CE34A"/>
+            <stop offset="1" stop-color="#25D366"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 300 C120 120 300 40 420 150C540 260 650 360 600 420C520 510 380 540 240 520C120 500 0 420 0 300Z" fill="url(#g1)" opacity="0.28"/>
+      </svg>
+
+      <div class="visual" role="img" aria-label="Visual abstrato Top Support">
+        <div class="device">
+          <h4>Suporte especializado</h4>
+          <p>Diagnóstico rápido, intervenção segura e relatório final com recomendações.</p>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Formatação</span>
+            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Clonagem</span>
+            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Redes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<main class="wrap" id="services">
+  <section aria-label="Serviços">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div>
+        <h2 style="color:var(--accent);margin-bottom:6px">Serviços</h2>
+        <p style="color:var(--muted)">Soluções práticas para manter sua operação funcionando 24/7.</p>
+      </div>
+      <div style="color:var(--muted);font-size:14px">Atendemos em: <strong style="color:var(--soft-white)">Ribeirão Preto</strong></div>
+    </div>
+
+    <div class="services" style="margin-top:18px;">
+      <article class="card" aria-labelledby="s1">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=60&auto=format&fit=crop" alt="Formatação de computadores"></div>
+        <div>
+          <h4 id="s1">Formatação & Otimização</h4>
+          <p>Reinstalação limpa do sistema, atualização de drivers, otimização de inicialização e performance.</p>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="s2">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1587202372775-98907bcd4f85?w=1200&q=60&auto=format&fit=crop" alt="Limpeza preventiva"></div>
+        <div>
+          <h4 id="s2">Limpeza Preventiva</h4>
+          <p>Remoção de poeira, verificação de ventoinhas, troca de pasta térmica e testes de temperatura.</p>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="s3">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1620228885847-9ff49e5e9c57?w=1200&q=60&auto=format&fit=crop" alt="Clonagem de disco"></div>
+        <div>
+          <h4 id="s3">Clonagem de HD/SSD</h4>
+          <p>Migração segura de SO e dados para novos drives sem perda de configuração ou arquivos.</p>
+        </div>
+      </article>
+
+      <article class="card" aria-labelledby="s4">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?w=1200&q=60&auto=format&fit=crop" alt="Configuração de redes"></div>
+        <div>
+          <h4 id="s4">Configuração de Redes</h4>
+          <p>Instalação de roteadores, cabeamento, Wi-Fi empresarial, segmentação e segurança de rede.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- CTA STRIP -->
+    <div class="cta-strip" style="margin-top:20px">
+      <div>
+        <strong style="display:block;color:var(--soft-white);font-size:16px">Quer prioridade no atendimento?</strong>
+        <span style="color:var(--muted)">Clique abaixo e fale direto no WhatsApp para atendimento rápido.</span>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Quero%20prioridade%20no%20atendimento%20da%20Top%20Support.">Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" href="#contact">Solicitar Orçamento</a>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div style="margin-top:20px">
+      <h3 style="color:var(--accent);margin-bottom:10px">O que clientes dizem</h3>
+      <div class="testimonials">
+        <div class="testimonial"><p>Profissional muito rápido — resolveu meu PC em menos de uma hora. Recomendo!</p><small>— João, Ribeirão Preto</small></div>
+        <div class="testimonial"><p>Atendimento excelente e plano mensal que se encaixou na nossa empresa.</p><small>— Escritório ABC</small></div>
+        <div class="testimonial"><p>Clonagem de SSD perfeita, todo o sistema funcionou como antes.</p><small>— Marina</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / Contact -->
+  <section id="contact" style="margin-top:28px;display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
+    <div>
+      <h3 style="color:var(--accent);margin-bottom:8px">Perguntas rápidas</h3>
+      <div style="display:grid;gap:10px">
+        <div style="background:var(--card);padding:14px;border-radius:10px">
+          <strong>Atendem empresas fora do horário comercial?</strong>
+          <p style="color:var(--muted);margin-top:6px">Sim. Possibilidade de plantão/atendimento emergencial conforme contrato.</p>
+        </div>
+        <div style="background:var(--card);padding:14px;border-radius:10px">
+          <strong>Faz backup e recuperação de dados?</strong>
+          <p style="color:var(--muted);margin-top:6px">Sim. Oferecemos backup local e em nuvem, e recuperação em casos específicos.</p>
+        </div>
+      </div>
+    </div>
+
+    <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+      <h4 style="color:var(--soft-white);margin-bottom:6px">Fale com a Top Support</h4>
+      <p style="color:var(--muted);margin-bottom:12px">Atendimento rápido via WhatsApp — clique abaixo e envie uma mensagem com seu problema.</p>
+      <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Preciso%20de%20suporte%20de%20TI.">Chamar no WhatsApp</a>
+      <div style="margin-top:12px;color:var(--muted);font-size:13px">Ou ligue: <strong style="color:var(--soft-white)">16 99450-2783</strong></div>
+    </aside>
+  </section>
+
+  <footer class="sitefoot">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© <strong>Top Support</strong> • Ribeirão Preto • Suporte de TI</div>
+      <div style="color:var(--muted)">Criado para Google Ads • Landing otimizada para conversão</div>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>

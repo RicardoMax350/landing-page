@@ -1,382 +1,904 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  /* ===== Tags Google ===== */
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17744252507"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'AW-17744252507');
-</script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Top Support — Suporte de TI Premium | Ribeirão Preto</title>
-<meta name="description" content="Top Support — Suporte de TI rápido e profissional em Ribeirão Preto. Formatação, limpeza preventiva, clonagem, redes, backups e suporte empresarial." />
+  <!-- ============================================================
+       TÍTULO DA ABA DO NAVEGADOR — altere conforme desejar
+  ============================================================ -->
+  <title>Top Support – Soluções em TI</title>
 
-<style>
-  /* ===== Reset e tipografia ===== */
-  :root{
-    --bg-1: #071627;
-    --bg-2: #082033;
-    --accent: #9ce34a;
-    --muted: #bfc9d1;
-    --glass: rgba(255,255,255,0.04);
-    --card: rgba(255,255,255,0.03);
-    --cta: #25D366;
-    --soft-white: #edf2f7;
-    --maxw: 1200px;
-  }
+  <!-- Fontes do Google (não precisa alterar) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-    background: linear-gradient(160deg,var(--bg-1) 0%, #0b2b3f 40%, #0d3a52 100%);
-    color:var(--soft-white);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-  }
+  <style>
 
-  img{max-width:100%;display:block}
+    /* ============================================================
+       VARIÁVEIS GLOBAIS DE COR
+       Aqui você controla todo o esquema de cores do site.
+       Basta trocar os valores abaixo para mudar a identidade visual.
+    ============================================================ */
+    :root {
+      --bg:         #080f0a;               /* Fundo principal (mais escuro) */
+      --bg2:        #0c1410;               /* Fundo secundário (seções alternadas) */
+      --bg3:        #111a13;               /* Fundo de cards e painéis */
+      --green:      #4adf6e;               /* Verde principal (destaques, títulos, ícones) */
+      --green2:     #2ab84c;               /* Verde botões (um tom mais escuro) */
+      --green-dim:  #1a3d22;               /* Verde muito escuro (fundo de badges/ícones) */
+      --text:       #f0f8f2;               /* Cor do texto principal */
+      --muted:      #7a9a82;               /* Cor do texto secundário/cinza */
+      --border:     rgba(74,223,110,0.1);  /* Cor das bordas dos cards */
+      --card:       rgba(74,223,110,0.04); /* Fundo sutil dos cards */
+    }
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px;}
+    /* Reset básico */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* ===== Header / Hero ===== */
-  header.hero{
-    position:relative;
-    padding:36px 0 20px;
-  }
+    /* ============================================================
+       BARRA DE NAVEGAÇÃO (fixa no topo)
+    ============================================================ */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 5%;
+      background: rgba(8,15,10,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  .topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-  }
+    /* Logo */
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.25rem;
+      color: var(--text);
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--green-dim);
+      border: 1px solid rgba(74,223,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    /* Parte colorida do logo */
+    .logo span { color: var(--green); }
 
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:14px;
-  }
-  .brand img{
-    width:110px;
-    height:auto;
-    border-radius:12px;
-    background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    padding:6px;
-    box-shadow: 0 6px 20px rgba(2,9,17,0.6);
-  }
-  .brand h1{
-    font-size:18px;color:var(--soft-white);letter-spacing:0.2px;
-  }
-  .brand p{font-size:12px;color:var(--muted);margin-top:2px}
+    /* Links do menu */
+    nav ul { display: flex; gap: 1.8rem; list-style: none; }
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--text); }
 
-  .cta-actions{display:flex;gap:12px;align-items:center}
-  .btn{
-    display:inline-flex;gap:10px;align-items:center;
-    padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none;
-    box-shadow: 0 6px 18px rgba(3,10,18,0.45);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .btn:active{transform:translateY(1px)}
-  .btn-ghost{
-    background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--soft-white);
-    backdrop-filter: blur(6px);
-  }
-  .btn-primary{
-    background: linear-gradient(90deg, #2dd66c, #16b24d);
-    color:#04221a;
-  }
+    /* ============================================================
+       BOTÕES — estilos reutilizados em todo o site
+    ============================================================ */
 
-  /* Hero card */
-  .hero-card{
-    margin-top:28px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:18px;
-    padding:36px;
-    display:grid;
-    grid-template-columns: 1fr 460px;
-    gap:28px;
-    align-items:center;
-    box-shadow: 0 20px 60px rgba(2,9,17,0.6);
-    overflow:visible;
-  }
+    /* Botão verde principal (WhatsApp, CTAs) */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green2); color: #fff;
+      border: none; padding: .75rem 1.7rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500; font-size: .95rem;
+      cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-primary:hover {
+      background: var(--green);
+      box-shadow: 0 8px 28px rgba(74,223,110,.35);
+      transform: translateY(-2px);
+    }
 
-  .hero-left h2{
-    color:var(--accent);
-    font-size:28px;
-    margin-bottom:10px;
-  }
-  .hero-left h3{
-    font-size:20px;color:var(--soft-white);margin-bottom:14px;
-  }
-  .hero-left p{color:var(--muted);margin-bottom:18px;font-size:15px}
+    /* Botão contorno (secundário) */
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+      padding: .75rem 1.7rem; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500; font-size: .95rem;
+      cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-outline:hover {
+      border-color: rgba(74,223,110,.35);
+      background: var(--card);
+    }
 
-  .kpis{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
-  .kpi{background:var(--card);padding:12px 14px;border-radius:12px;min-width:130px}
-  .kpi strong{display:block;font-size:18px;color:var(--soft-white)}
-  .kpi span{font-size:13px;color:var(--muted)}
+    /* Botão WhatsApp compacto (no nav) */
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green2); color: #fff;
+      border: none; padding: .6rem 1.2rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500; font-size: .85rem;
+      cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-wa:hover {
+      background: var(--green);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(74,223,110,.3);
+    }
 
-  /* Hero visual card (right) */
-  .hero-right{
-    position:relative;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow: 0 14px 40px rgba(3,10,20,0.45);
-    overflow:hidden;
-  }
-  .hero-right .visual{
-    height:280px;border-radius:10px;overflow:hidden;background:
-      linear-gradient(120deg, rgba(156,227,74,0.07), rgba(37,211,102,0.04));
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-right .visual .device{
-    width:86%;height:86%;border-radius:10px;background:linear-gradient(145deg,#0f2a3a, #072233);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 12px 40px rgba(0,0,0,0.6);
-    padding:18px;color:var(--muted);
-  }
-  .hero-right .visual h4{color:var(--accent);font-size:16px;margin-bottom:6px}
-  .hero-right .visual p{font-size:13px;color:var(--muted)}
+    /* Ícone SVG do WhatsApp */
+    .wa-icon { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
 
-  /* Decorative abstract SVG curves */
-  .decor-svg{
-    position:absolute;right:-120px;top:-60px;opacity:0.22;filter: blur(18px);
-    transform: rotate(12deg);pointer-events:none;
-  }
+    /* ============================================================
+       SEÇÕES — espaçamento padrão
+    ============================================================ */
+    section { padding: 5.5rem 5%; }
 
-  /* ===== Services ===== */
-  .services{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:14px;padding:18px;display:flex;gap:16px;align-items:center;transition:transform .22s ease,box-shadow .22s ease;
-    border:1px solid rgba(255,255,255,0.03);
-  }
-  .card:hover{transform:translateY(-8px);box-shadow: 0 20px 50px rgba(2,9,17,0.6)}
-  .card .thumb{width:120px;height:80px;border-radius:10px;overflow:hidden;flex-shrink:0}
-  .card .thumb img{width:100%;height:100%;object-fit:cover}
-  .card h4{color:var(--soft-white);font-size:16px;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:14px}
+    /* Tag colorida acima dos títulos */
+    .section-tag {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--green);
+      margin-bottom: .8rem;
+    }
 
-  /* Full-width CTA strip */
-  .cta-strip{
-    margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(156,227,74,0.06), rgba(37,211,102,0.03));
-    display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(156,227,74,0.06);
-  }
+    /* Títulos H2 das seções */
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 1rem; letter-spacing: -.02em;
+    }
 
-  /* Testimonials */
-  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-  .testimonial{background:var(--glass);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-  .testimonial p{color:var(--muted);font-size:14px;margin-bottom:10px}
-  .testimonial small{color:var(--accent);font-weight:700}
+    /* Subtítulo das seções */
+    .section-sub {
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 3rem;
+      font-size: 1rem; line-height: 1.8;
+    }
 
-  /* Footer */
-  footer.sitefoot{margin-top:40px;padding:20px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);font-size:13px;border-radius:8px}
+    /* ============================================================
+       SEÇÃO HERO (primeira tela)
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 5% 5rem;
+      position: relative; overflow: hidden;
+    }
 
-  /* Responsive */
-  @media (max-width:980px){
-    .hero-card{grid-template-columns:1fr; padding:22px}
-    .hero-right{order:-1}
-    .services{grid-template-columns:1fr}
-    .testimonials{grid-template-columns:1fr}
-  }
+    /* Grade decorativa de fundo */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(74,223,110,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,223,110,.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 100%);
+    }
 
-  @media (max-width:520px){
-    .brand img{width:88px}
-    .hero-left h2{font-size:22px}
-    .hero-left h3{font-size:16px}
-  }
+    /* Brilho difuso de fundo */
+    .hero-glow {
+      position: absolute; top: 10%; right: 0;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(74,223,110,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
 
-  /* micro interactions */
-  .pulse{
-    display:inline-block;position:relative;
-  }
-  .pulse::after{
-    content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 6px rgba(37,211,102,0.07);opacity:0;animation:pulse 2.6s infinite;
-  }
-  @keyframes pulse{0%{opacity:0;transform:scale(.92)}20%{opacity:0.7;transform:scale(1)}100%{opacity:0;transform:scale(1.12)}}
-</style>
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+
+    /* Badge verde no topo do hero */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(74,223,110,.1);
+      border: 1px solid rgba(74,223,110,.25);
+      padding: .35rem 1rem; border-radius: 20px;
+      font-size: .78rem; color: var(--green);
+      margin-bottom: 1.5rem; letter-spacing: .05em;
+    }
+
+    /* Ponto piscando dentro do badge */
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--green); border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* Título principal H1 */
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 800; line-height: 1.1;
+      margin-bottom: 1.5rem; letter-spacing: -.02em;
+    }
+    /* Palavra em destaque verde dentro do H1 */
+    h1 em { font-style: normal; color: var(--green); }
+
+    .hero-desc {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 520px; margin-bottom: 2.5rem; line-height: 1.85;
+    }
+
+    /* Botões do hero lado a lado */
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    /* Estatísticas abaixo dos botões */
+    .hero-stats {
+      display: flex; gap: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-n {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800; color: var(--green);
+    }
+    .stat-l { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+
+    /* ============================================================
+       SEÇÃO SERVIÇOS
+    ============================================================ */
+    #services { background: var(--bg2); }
+
+    /* Grade responsiva de 3 colunas */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    /* Card individual */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.8rem;
+      transition: all .3s;
+    }
+    .card:hover {
+      border-color: rgba(74,223,110,.3);
+      transform: translateY(-4px);
+      background: rgba(74,223,110,.06);
+    }
+
+    /* Ícone do card */
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 10px;
+      background: var(--green-dim);
+      border: 1px solid rgba(74,223,110,.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem; font-size: 1.3rem;
+    }
+    .card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700; margin-bottom: .5rem;
+    }
+    .card p { color: var(--muted); font-size: .88rem; line-height: 1.7; }
+
+    /* ============================================================
+       SEÇÃO "POR QUE NÓS"
+    ============================================================ */
+    #why { background: var(--bg); }
+
+    /* Layout duas colunas */
+    .why-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+
+    /* Lista de diferenciais */
+    .why-list { list-style: none; }
+    .why-list li {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .why-list li:last-child { border-bottom: none; }
+
+    /* Ícone de check */
+    .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green-dim);
+      border: 1px solid rgba(74,223,110,.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+      color: var(--green); font-size: .7rem;
+    }
+    .why-list h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: .92rem; margin-bottom: .2rem;
+    }
+    .why-list p { color: var(--muted); font-size: .84rem; }
+
+    /* Painel de métricas à direita */
+    .why-panel {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 2rem;
+      position: relative; overflow: hidden;
+    }
+    .why-panel::after {
+      content: '';
+      position: absolute; bottom: -60px; right: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(74,223,110,.08), transparent 70%);
+    }
+
+    /* Linha de cada métrica */
+    .metric {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 0; border-bottom: 1px solid var(--border);
+    }
+    .metric:last-of-type { border-bottom: none; }
+    .m-label  { font-size: .87rem; color: var(--muted); }
+    .m-bar    { width: 100px; height: 5px; background: rgba(255,255,255,.07); border-radius: 3px; overflow: hidden; }
+    .m-fill   { height: 100%; background: var(--green); border-radius: 3px; }
+    .m-val    { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .95rem; color: var(--green); }
+
+    /* Caixa do telefone dentro do painel */
+    .phone-box {
+      margin-top: 1.8rem; padding: 1.2rem;
+      background: rgba(74,223,110,.06);
+      border-radius: 12px;
+      border: 1px solid rgba(74,223,110,.15);
+    }
+    .phone-box .label { font-size: .75rem; color: var(--muted); margin-bottom: 4px; }
+    .phone-box .number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.6rem; color: var(--green);
+    }
+    .phone-box .sub { font-size: .75rem; color: var(--muted); }
+
+    /* ============================================================
+       SEÇÃO PLANOS
+    ============================================================ */
+    #planos { background: var(--bg2); }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .plan {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+    }
+
+    /* Plano em destaque */
+    .plan.featured {
+      background: linear-gradient(135deg, rgba(74,223,110,.07), rgba(42,184,76,.04));
+      border: 1.5px solid rgba(74,223,110,.35);
+      position: relative;
+    }
+
+    /* Badge "Mais procurado" */
+    .plan-tag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--green2); color: #fff;
+      font-size: .7rem; font-weight: 700;
+      padding: 3px 14px; border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: .82rem; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--muted);
+      margin-bottom: .8rem;
+    }
+    .plan-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.3rem; font-weight: 800; margin-bottom: .2rem;
+    }
+    .plan-price small { font-size: .95rem; font-weight: 400; color: var(--muted); }
+    .plan-desc { color: var(--muted); font-size: .83rem; margin-bottom: 1.3rem; }
+
+    .plan ul { list-style: none; margin-bottom: 1.8rem; }
+    .plan ul li {
+      display: flex; gap: 8px; align-items: center;
+      font-size: .86rem; padding: .38rem 0; color: var(--muted);
+    }
+    .plan ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+    /* ============================================================
+       SEÇÃO CTA FINAL (chamada para ação)
+    ============================================================ */
+    #cta { background: var(--bg); text-align: center; }
+
+    .cta-inner {
+      background: linear-gradient(135deg, rgba(74,223,110,.06), rgba(42,184,76,.03));
+      border: 1px solid rgba(74,223,110,.2);
+      border-radius: 22px; padding: 3.5rem 2rem;
+      max-width: 680px; margin: 0 auto;
+      position: relative; overflow: hidden;
+    }
+
+    /* Brilho decorativo no fundo do CTA */
+    .cta-inner::before {
+      content: '';
+      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 400px; height: 300px;
+      background: radial-gradient(ellipse, rgba(74,223,110,.07), transparent 70%);
+    }
+
+    .cta-inner h2,
+    .cta-inner p { position: relative; }
+    .cta-inner p  { color: var(--muted); margin-bottom: 2rem; }
+
+    .cta-btns {
+      display: flex; gap: 1rem;
+      justify-content: center; flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Número de telefone abaixo dos botões */
+    .tel {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--green); margin-top: 1.2rem;
+      position: relative;
+    }
+
+    /* ============================================================
+       BOTÃO FLUTUANTE DO WHATSAPP (canto inferior direito)
+       Aparece em todas as seções da página
+    ============================================================ */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--green2); color: #fff;
+      text-decoration: none;
+      padding: .8rem 1.3rem; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: .9rem;
+      box-shadow: 0 8px 32px rgba(74,223,110,.35);
+      transition: all .25s;
+      animation: float-in .6s ease both;
+    }
+    .wa-float:hover {
+      background: var(--green);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(74,223,110,.5);
+    }
+    @keyframes float-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       RODAPÉ
+    ============================================================ */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 5%;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { color: var(--muted); font-size: .82rem; }
+
+    /* ============================================================
+       RESPONSIVIDADE — telas menores (celular/tablet)
+    ============================================================ */
+    @media (max-width: 768px) {
+      nav ul     { display: none; }           /* Esconde menu no mobile */
+      .why-wrap  { grid-template-columns: 1fr; } /* Empilha colunas */
+      .hero-stats { gap: 1.5rem; }
+      .wa-float  { bottom: 16px; right: 16px; padding: .7rem 1rem; font-size: .82rem; }
+    }
+
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap topbar">
-    <div class="brand">
-      <!-- caminho local do logo (substituir para deploy): /mnt/data/logo.jpeg -->
-      <img src="logotopsupport.jpg" alt="Top Support — logo">
-      <div>
-        <h1>Top Support</h1>
-        <p>Suporte de TI Premium • Ribeirão Preto</p>
-      </div>
-    </div>
+  <!-- ============================================================
+       BOTÃO FLUTUANTE DO WHATSAPP
+       Aparece fixo em todas as telas.
+       EDITAR: troque o número no href (wa.me/55SEUNUMERO)
+               e a mensagem após ?text=
+  ============================================================ -->
+  <a class="wa-float"
+     href="https://wa.me/5516994502783?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
+     target="_blank">
+    <!-- Ícone SVG do WhatsApp (não precisa alterar) -->
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Falar no WhatsApp
+  </a>
 
-    <div class="cta-actions">
-      <a class="btn btn-ghost" href="#services" aria-label="Ver serviços">Nossos Serviços</a>
-      <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20TI." aria-label="Chamar no WhatsApp">
-        Falar no WhatsApp
-      </a>
-    </div>
-  </div>
 
-  <div class="wrap hero-card" role="region" aria-label="Apresentação Top Support">
-    <div class="hero-left">
-      <h2>Soluções de TI que fazem sua operação funcionar — sem dor de cabeça.</h2>
-      <h3>Atendimento rápido, seguro e com foco em resultados para empresas e residências em Ribeirão Preto.</h3>
-      <p>Formatação e otimização, limpeza preventiva, clonagem de HD/SSD, configuração de redes, backups e suporte empresarial. Planos mensais e atendimento avulso.</p>
+  <!-- ============================================================
+       BARRA DE NAVEGAÇÃO (TOPO)
+       EDITAR: nome da empresa no .logo, links do menu e número do WhatsApp
+  ============================================================ -->
+  <nav>
+    <!-- Logo — altere o emoji e o nome da empresa -->
+    <a class="logo" href="#">
+      <div class="logo-icon">💻</div>
+      Top <span>Support</span>
+    </a>
 
-      <div class="kpis" aria-hidden="true">
-        <div class="kpi"><strong>+1.200</strong><span> chamados resolvidos</span></div>
-        <div class="kpi"><strong>90%</strong><span> satisfação média</span></div>
-        <div class="kpi"><strong>Atendimento</strong><span> remoto e presencial</span></div>
-      </div>
+    <!-- Links do menu — altere os textos e âncoras conforme as seções -->
+    <ul>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#why">Por que nós</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#cta">Contato</a></li>
+    </ul>
 
-      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-        <a class="btn btn-primary pulse" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20suporte%20de%20TI.">Chamar no WhatsApp</a>
-        <a class="btn btn-ghost" href="#contact">Fazer um Orçamento</a>
-      </div>
-    </div>
-
-    <div class="hero-right" aria-hidden="true">
-      <!-- visual abstrato + dispositivo -->
-      <svg class="decor-svg" width="420" height="420" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0" stop-color="#9CE34A"/>
-            <stop offset="1" stop-color="#25D366"/>
-          </linearGradient>
-        </defs>
-        <path d="M0 300 C120 120 300 40 420 150C540 260 650 360 600 420C520 510 380 540 240 520C120 500 0 420 0 300Z" fill="url(#g1)" opacity="0.28"/>
+    <!-- Botão de WhatsApp no nav -->
+    <a class="btn-wa"
+       href="https://wa.me/5516994502783?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
+       target="_blank">
+      <svg class="wa-icon" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
+      WhatsApp
+    </a>
+  </nav>
 
-      <div class="visual" role="img" aria-label="Visual abstrato Top Support">
-        <div class="device">
-          <h4>Suporte especializado</h4>
-          <p>Diagnóstico rápido, intervenção segura e relatório final com recomendações.</p>
-          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Formatação</span>
-            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Clonagem</span>
-            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Redes</span>
-            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Limpeza Preventiva</span>
-            <span style="background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:8px;font-size:13px;color:var(--muted)">Configuração de dispositvos WI-FI</span>
-          </div>
+
+  <!-- ============================================================
+       SEÇÃO 1 — HERO (TELA INICIAL)
+       EDITAR: badge, título h1, descrição, estatísticas e links do WhatsApp
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+
+      <!-- Badge de destaque — altere o texto -->
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Atendimento rápido e no local
+      </div>
+
+      <!-- Título principal — a palavra em <em> fica em verde -->
+      <h1>
+        Computador lento<br>
+        ou com <em>problemas?</em><br>
+        A gente resolve.
+      </h1>
+
+      <!-- Descrição abaixo do título — altere livremente -->
+      <p class="hero-desc">
+        Suporte técnico especializado para empresas e residências em Ribeirão Preto.
+        Avaliação gratuita e orçamento sem compromisso.
+      </p>
+
+      <!-- Botões de ação -->
+      <div class="hero-cta">
+        <!-- Botão principal — altere o link do WhatsApp e a mensagem -->
+        <a class="btn-primary"
+           href="https://wa.me/5516994502783?text=Olá!%20Quero%20a%20avaliação%20gratuita!"
+           target="_blank">
+          <svg class="wa-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Avaliação gratuita
+        </a>
+
+        <!-- Botão secundário — rola para a seção de serviços -->
+        <a class="btn-outline" href="#services">Ver serviços</a>
+      </div>
+
+      <!-- Estatísticas — altere os números e rótulos livremente -->
+      <div class="hero-stats">
+        <div>
+          <div class="stat-n">+200</div>
+          <div class="stat-l">Clientes atendidos</div>
+        </div>
+        <div>
+          <div class="stat-n">Rápido</div>
+          <div class="stat-l">Atendimento no local</div>
+        </div>
+        <div>
+          <div class="stat-n">Grátis</div>
+          <div class="stat-l">Avaliação inicial</div>
         </div>
       </div>
-    </div>
-  </div>
-</header>
 
-<!-- SERVICES -->
-<main class="wrap" id="services">
-  <section aria-label="Serviços">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO 2 — SERVIÇOS
+       EDITAR: título, subtítulo e cada card (ícone, nome, descrição)
+       Para adicionar um serviço: copie um bloco <div class="card">
+       Para remover: delete o bloco inteiro
+  ============================================================ -->
+  <section id="services">
+    <div class="section-tag">O que fazemos</div>
+    <h2>Soluções completas<br>para seu computador</h2>
+    <p class="section-sub">Atendemos em casa ou na empresa. Sem enrolação, sem burocracia.</p>
+
+    <div class="grid-3">
+
+      <!-- CARD 1 — altere emoji, título e descrição -->
+      <div class="card">
+        <div class="card-icon">🖥️</div>
+        <h3>Formatação</h3>
+        <p>Formatação completa com reinstalação do sistema e todos os drivers necessários.</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>Limpeza e manutenção</h3>
+        <p>Limpeza interna, troca de pasta térmica e manutenção preventiva para prolongar a vida do equipamento.</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Upgrade SSD / Memória</h3>
+        <p>Modernize seu computador com SSD e mais memória RAM. Resultado imediato na velocidade.</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <h3>Redes e Wi-Fi</h3>
+        <p>Instalação e configuração de redes cabeadas e sem fio para casa e empresas.</p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Remoção de vírus</h3>
+        <p>Eliminação de malwares, vírus e programas indesejados com proteção instalada.</p>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <h3>Suporte empresarial</h3>
+        <p>Contrato de manutenção para empresas com atendimento prioritário e visitas programadas.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SEÇÃO 3 — POR QUE NÓS
+       EDITAR: título, itens da lista (h4 + p) e métricas do painel
+  ============================================================ -->
+  <section id="why">
+    <div class="why-wrap">
+
+      <!-- Coluna esquerda: lista de diferenciais -->
       <div>
-        <h2 style="color:var(--accent);margin-bottom:6px">Serviços</h2>
-        <p style="color:var(--muted)">Soluções práticas para manter sua operação funcionando 24/7.</p>
+        <div class="section-tag">Por que a Top Support</div>
+        <h2>Atendimento rápido,<br>resultado garantido</h2>
+
+        <ul class="why-list">
+
+          <!-- Item 1 — altere título e texto -->
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <h4>Atendimento no local</h4>
+              <p>Vamos até você — em casa ou na empresa. Sem precisar desmontar nada.</p>
+            </div>
+          </li>
+
+          <!-- Item 2 -->
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <h4>Orçamento sem compromisso</h4>
+              <p>Avaliamos o problema e apresentamos o valor antes de começar qualquer serviço.</p>
+            </div>
+          </li>
+
+          <!-- Item 3 -->
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <h4>Avaliação gratuita no WhatsApp</h4>
+              <p>Descreva o problema e já receba um diagnóstico inicial sem pagar nada.</p>
+            </div>
+          </li>
+
+          <!-- Item 4 -->
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <h4>Técnicos experientes</h4>
+              <p>Anos de experiência em hardware, software e redes para você ter tranquilidade.</p>
+            </div>
+          </li>
+
+        </ul>
       </div>
-      <div style="color:var(--muted);font-size:14px">Atendemos em: <strong style="color:var(--soft-white)">Ribeirão Preto</strong></div>
-    </div>
 
-    <div class="services" style="margin-top:18px;">
-      <article class="card" aria-labelledby="s1">
-        <div class="thumb"><img src="formatacao.png" alt="Formatação de computadores"></div>
-        <div>
-          <h4 id="s1">Formatação & Otimização</h4>
-          <p>Reinstalação limpa do sistema, atualização de drivers, otimização de inicialização e performance.</p>
+      <!-- Coluna direita: painel de métricas -->
+      <div class="why-panel">
+        <div style="font-family:'Syne',sans-serif; font-weight:700; font-size:.85rem; color:var(--muted); margin-bottom:1.5rem;">
+          Índice de satisfação
         </div>
-      </article>
 
-      <article class="card" aria-labelledby="s2">
-        <div class="thumb"><img src="preventiva.jpg" alt="Limpeza preventiva"></div>
-        <div>
-          <h4 id="s2">Limpeza Preventiva</h4>
-          <p>Remoção de poeira, verificação de ventoinhas, troca de pasta térmica e testes de temperatura.</p>
+        <!-- Métrica 1 — altere o rótulo, a largura da barra (%) e o valor -->
+        <div class="metric">
+          <span class="m-label">Problemas resolvidos</span>
+          <div class="m-bar"><div class="m-fill" style="width:97%"></div></div>
+          <span class="m-val">97%</span>
         </div>
-      </article>
 
-      <article class="card" aria-labelledby="s3">
-        <div class="thumb"><img src="hdssd.png" alt="Clonagem de disco"></div>
-        <div>
-          <h4 id="s3">Clonagem de HD/SSD</h4>
-          <p>Migração segura de SO e dados para novos drives sem perda de configuração ou arquivos.</p>
+        <!-- Métrica 2 -->
+        <div class="metric">
+          <span class="m-label">Clientes satisfeitos</span>
+          <div class="m-bar"><div class="m-fill" style="width:99%"></div></div>
+          <span class="m-val">99%</span>
         </div>
-      </article>
 
-      <article class="card" aria-labelledby="s4">
-        <div class="thumb"><img src="redes.jpg" alt="Configuração de redes"></div>
-        <div>
-          <h4 id="s4">Configuração de Redes</h4>
-          <p>Instalação de roteadores, cabeamento, Wi-Fi empresarial, segmentação e segurança de rede.</p>
+        <!-- Métrica 3 -->
+        <div class="metric">
+          <span class="m-label">Retorno dos clientes</span>
+          <div class="m-bar"><div class="m-fill" style="width:92%"></div></div>
+          <span class="m-val">92%</span>
         </div>
-      </article>
-    </div>
 
-    <!-- CTA STRIP -->
-    <div class="cta-strip" style="margin-top:20px">
-      <div>
-        <strong style="display:block;color:var(--soft-white);font-size:16px">Quer prioridade no atendimento?</strong>
-        <span style="color:var(--muted)">Clique abaixo e fale direto no WhatsApp para atendimento rápido.</span>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Quero%20prioridade%20no%20atendimento%20da%20Top%20Support.">Chamar no WhatsApp</a>
-        <a class="btn btn-ghost" href="#contact">Solicitar Orçamento</a>
-      </div>
-    </div>
+        <!-- Caixa do telefone — altere o número -->
+        <div class="phone-box">
+          <div class="label">Avaliação gratuita via</div>
+          <div class="number">(16) 99450-2783</div>
+          <div class="sub">WhatsApp disponível agora</div>
+        </div>
 
-    <!-- TESTIMONIALS -->
-    <div style="margin-top:20px">
-      <h3 style="color:var(--accent);margin-bottom:10px">O que clientes dizem</h3>
-      <div class="testimonials">
-        <div class="testimonial"><p>Profissional muito rápido — resolveu meu PC em menos de uma hora. Recomendo!</p><small>— João, Ribeirão Preto</small></div>
-        <div class="testimonial"><p>Atendimento excelente e plano mensal que se encaixou na nossa empresa.</p><small>— Escritório ABC</small></div>
-        <div class="testimonial"><p>Clonagem de SSD perfeita, todo o sistema funcionou como antes.</p><small>— Marina</small></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ / Contact -->
-  <section id="contact" style="margin-top:28px;display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
-    <div>
-      <h3 style="color:var(--accent);margin-bottom:8px">Perguntas rápidas</h3>
-      <div style="display:grid;gap:10px">
-        <div style="background:var(--card);padding:14px;border-radius:10px">
-          <strong>Atendem empresas fora do horário comercial?</strong>
-          <p style="color:var(--muted);margin-top:6px">Sim. Possibilidade de plantão/atendimento emergencial conforme contrato.</p>
-        </div>
-        <div style="background:var(--card);padding:14px;border-radius:10px">
-          <strong>Faz backup e recuperação de dados?</strong>
-          <p style="color:var(--muted);margin-top:6px">Sim. Oferecemos backup local e em nuvem, e recuperação em casos específicos.</p>
-        </div>
-      </div>
+
+  <!-- ============================================================
+       SEÇÃO 4 — PLANOS
+       EDITAR: nome, preço, descrição e itens de cada plano
+       O plano com class="plan featured" é o destacado (borda verde + badge)
+  ============================================================ -->
+  <section id="planos">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <div class="section-tag">Planos</div>
+      <h2>Escolha o melhor<br>para você ou sua empresa</h2>
     </div>
 
-    <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-      <h4 style="color:var(--soft-white);margin-bottom:6px">Fale com a Top Support</h4>
-      <p style="color:var(--muted);margin-bottom:12px">Atendimento rápido via WhatsApp — clique abaixo e envie uma mensagem com seu problema.</p>
-      <a class="btn btn-primary" href="https://wa.me/5516994502783?text=Ol%C3%A1%21%20Preciso%20de%20suporte%20de%20TI.">Chamar no WhatsApp</a>
-      <div style="margin-top:12px;color:var(--muted);font-size:13px">Ou ligue: <strong style="color:var(--soft-white)">16 99450-2783</strong></div>
-    </aside>
+    <div class="plans">
+
+      <!-- PLANO 1 — Residencial -->
+      <div class="plan">
+        <div class="plan-name">Residencial</div>
+        <!-- Altere o preço abaixo -->
+        <div class="plan-price">R$ 120<small>/serviço</small></div>
+        <div class="plan-desc">Para uso doméstico e autônomos</div>
+        <ul>
+          <li>Formatação completa</li>
+          <li>Limpeza e manutenção</li>
+          <li>Remoção de vírus</li>
+          <li>Atendimento no local</li>
+          <li>Orçamento gratuito</li>
+        </ul>
+        <!-- Altere a mensagem do WhatsApp conforme o plano -->
+        <a class="btn-outline"
+           style="display:block; text-align:center; text-decoration:none;"
+           href="https://wa.me/5516994502783?text=Olá!%20Tenho%20interesse%20no%20plano%20Residencial."
+           target="_blank">
+          Solicitar via WhatsApp
+        </a>
+      </div>
+
+      <!-- PLANO 2 — Empresarial Básico (DESTAQUE) -->
+      <div class="plan featured">
+        <!-- Badge acima do card — altere o texto -->
+        <div class="plan-tag">Mais procurado</div>
+        <div class="plan-name">Empresarial Básico</div>
+        <div class="plan-price">R$ 350<small>/mês</small></div>
+        <div class="plan-desc">Para pequenas empresas de até 5 PCs</div>
+        <ul>
+          <li>Visita mensal programada</li>
+          <li>Manutenção preventiva</li>
+          <li>Suporte remoto ilimitado</li>
+          <li>Configuração de rede</li>
+          <li>Prioridade no atendimento</li>
+          <li>Relatório mensal</li>
+        </ul>
+        <a class="btn-primary"
+           style="display:block; text-align:center; text-decoration:none;"
+           href="https://wa.me/5516994502783?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20plano%20Empresarial%20Básico."
+           target="_blank">
+          Solicitar via WhatsApp
+        </a>
+      </div>
+
+      <!-- PLANO 3 — Empresarial Pro -->
+      <div class="plan">
+        <div class="plan-name">Empresarial Pro</div>
+        <div class="plan-price">Sob consulta</div>
+        <div class="plan-desc">Para médias empresas acima de 5 PCs</div>
+        <ul>
+          <li>Tudo do plano básico</li>
+          <li>Atendimento prioritário 24h</li>
+          <li>Gestão de servidores</li>
+          <li>Backup gerenciado</li>
+          <li>Consultoria de TI</li>
+          <li>SLA personalizado</li>
+        </ul>
+        <a class="btn-outline"
+           style="display:block; text-align:center; text-decoration:none;"
+           href="https://wa.me/5516994502783?text=Olá!%20Quero%20um%20orçamento%20para%20o%20plano%20Empresarial%20Pro."
+           target="_blank">
+          Solicitar via WhatsApp
+        </a>
+      </div>
+
+    </div>
   </section>
 
-  <footer class="sitefoot">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>© <strong>Top Support</strong> • Ribeirão Preto • Suporte de TI</div>
-      <div style="color:var(--muted)">Criado para Google Ads • Landing otimizada para conversão</div>
+
+  <!-- ============================================================
+       SEÇÃO 5 — CTA FINAL (chamada para ação)
+       EDITAR: título, texto e links do WhatsApp
+  ============================================================ -->
+  <section id="cta">
+    <div class="cta-inner">
+      <div class="section-tag" style="text-align:center;">Fale conosco</div>
+      <h2>Chame no WhatsApp<br>e ganhe avaliação gratuita!</h2>
+      <p>
+        Atendemos em Ribeirão Preto e região.<br>
+        Resposta rápida, orçamento sem compromisso e atendimento no local.
+      </p>
+
+      <div class="cta-btns">
+        <!-- Botão principal do CTA -->
+        <a class="btn-primary"
+           href="https://wa.me/5516994502783?text=Olá!%20Vim%20pelo%20site%20e%20quero%20a%20avaliação%20gratuita!"
+           target="_blank">
+          <svg class="wa-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Falar agora no WhatsApp
+        </a>
+      </div>
+
+      <!-- Número visível abaixo do botão — altere o número -->
+      <div class="tel">(16) 99450-2783</div>
     </div>
+  </section>
+
+
+  <!-- ============================================================
+       RODAPÉ
+       EDITAR: nome, cidade e ano
+  ============================================================ -->
+  <footer>
+    <a class="logo" href="#" style="font-size:1rem; text-decoration:none;">
+      <div class="logo-icon" style="width:28px; height:28px; font-size:.9rem;">💻</div>
+      Top <span>Support</span>
+    </a>
+    <!-- Altere o ano e a cidade se necessário -->
+    <p>© 2025 Top Support Soluções em TI · Ribeirão Preto, SP</p>
+    <p>Todos os direitos reservados</p>
   </footer>
-</main>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
